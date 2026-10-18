@@ -1,0 +1,42 @@
+import enum
+
+class UserRole(str, enum.Enum):
+    ADMIN = "ADMIN"
+    ORG_HR = "ORG_HR"
+    CANDIDATE = "CANDIDATE"
+
+class VerificationType(str, enum.Enum):
+    EDUCATION = "EDUCATION"
+    EMPLOYMENT = "EMPLOYMENT"
+    IDENTITY = "IDENTITY"
+
+class VerificationStatus(str, enum.Enum):
+    CREATED = "CREATED"
+    CONSENT_PENDING = "CONSENT_PENDING"
+    PENDING = "PENDING"
+    PROCESSING = "PROCESSING"
+    EVIDENCE_COLLECTION = "EVIDENCE_COLLECTION"
+    AI_REVIEW = "AI_REVIEW"
+    MANUAL_REVIEW = "MANUAL_REVIEW"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+    CANCELLED = "CANCELLED"
+
+class MatchStatus(str, enum.Enum):
+    MATCH = "MATCH"
+    PARTIAL_MATCH = "PARTIAL_MATCH"
+    NOT_MATCH = "NOT_MATCH"
+    MANUAL_REVIEW = "MANUAL_REVIEW"
+    PENDING = "PENDING"
+    FAILED = "FAILED"
+
+class ReviewDecision(str, enum.Enum):
+    APPROVED = "APPROVED"
+    REJECTED = "REJECTED"
+    RETURNED = "RETURNED"
+
+class EvidenceSourceType(str, enum.Enum):
+    DOCUMENT_OCR = "DOCUMENT_OCR"
+    EXTERNAL_PORTAL_AUTOMATION = "EXTERNAL_PORTAL_AUTOMATION"
+    MANUAL_ENTRY = "MANUAL_ENTRY"
+    API = "API"
