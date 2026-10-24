@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="2" y1="2" x2="30" y2="30" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+  </defs>
+  <!-- Rounded Shield Background -->
+  <path
+    d="M16 2.5C21.5 2.5 27 4.5 27 4.5V14.5C27 21.8 22.3 27.2 16 29.5C9.7 27.2 5 21.8 5 14.5V4.5C5 4.5 10.5 2.5 16 2.5Z"
+    fill="url(#bgGrad)"
+  />
+  <!-- Inner White Checkmark -->
+  <path
+    d="M11 15.5L14.5 19L21.5 12"
+    stroke="#ffffff"
+    stroke-width="2.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
