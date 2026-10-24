@@ -2,7 +2,11 @@
 
 import React from "react";
 import { useAuth } from "@/lib/auth-context";
+<<<<<<< HEAD
 import { ShieldCheck, LogOut, UserCircle2, ArrowRightLeft, ExternalLink, Zap, Briefcase, GraduationCap } from "lucide-react";
+=======
+import { ShieldCheck, LogOut, UserCircle2, ArrowRightLeft, ExternalLink, Zap } from "lucide-react";
+>>>>>>> 63593a4007dd16e7b77a955538c0b7b9eee0312f
 
 interface NavbarProps {
   onViewLanding?: () => void;
@@ -24,16 +28,26 @@ export function Navbar({ onViewLanding, tokenBalance, onOpenPurchaseModal }: Nav
           <span className="text-lg font-bold tracking-tight text-slate-900">
             BGVerify<span className="text-blue-600">.ai</span>
           </span>
+<<<<<<< HEAD
           <span className="text-[11px] px-2 py-0.5 rounded-full font-bold bg-slate-100 text-slate-700 border border-slate-200">
             {user?.role === "CANDIDATE" ? "Candidate Workspace" : "HR Portal"}
+=======
+          <span className="text-[11px] px-2 py-0.5 rounded-full font-medium bg-slate-100 text-slate-600 border border-slate-200">
+            Workspace
+>>>>>>> 63593a4007dd16e7b77a955538c0b7b9eee0312f
           </span>
         </div>
       </div>
 
       {/* Demo Switcher & Session Controls */}
       <div className="flex items-center gap-3">
+<<<<<<< HEAD
         {/* Token Balance Pill for HR */}
         {user?.role !== "CANDIDATE" && tokenBalance !== undefined && onOpenPurchaseModal && (
+=======
+        {/* Token Balance Pill */}
+        {tokenBalance !== undefined && onOpenPurchaseModal && (
+>>>>>>> 63593a4007dd16e7b77a955538c0b7b9eee0312f
           <button
             onClick={onOpenPurchaseModal}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-900 text-xs font-bold transition-all shadow-xs"
@@ -47,6 +61,7 @@ export function Navbar({ onViewLanding, tokenBalance, onOpenPurchaseModal }: Nav
           </button>
         )}
 
+<<<<<<< HEAD
         {/* Quick Role Switcher (HR & Candidate Only - No Admin) */}
         <div className="hidden md:flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200 text-xs">
           <span className="text-slate-500 px-2 flex items-center gap-1 font-medium text-[11px]">
@@ -63,10 +78,39 @@ export function Navbar({ onViewLanding, tokenBalance, onOpenPurchaseModal }: Nav
           >
             <Briefcase className="w-3.5 h-3.5 text-blue-600" />
             <span>HR Manager</span>
+=======
+        {/* Quick Role Switcher */}
+        <div className="hidden md:flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200 text-xs">
+          <span className="text-slate-500 px-2 flex items-center gap-1 font-medium text-[11px]">
+            <ArrowRightLeft className="w-3 h-3 text-slate-400" /> Switch Role:
+          </span>
+          <button
+            onClick={() => switchDemoUser("ADMIN")}
+            disabled={isLoading}
+            className={`px-3 py-1 rounded-lg transition-all font-semibold ${
+              user?.role === "ADMIN"
+                ? "bg-white text-blue-700 shadow-xs border border-slate-200"
+                : "text-slate-600 hover:text-slate-900 hover:bg-slate-200/50"
+            }`}
+          >
+            Admin
+          </button>
+          <button
+            onClick={() => switchDemoUser("ORG_HR")}
+            disabled={isLoading}
+            className={`px-3 py-1 rounded-lg transition-all font-semibold ${
+              user?.role === "ORG_HR"
+                ? "bg-white text-blue-700 shadow-xs border border-slate-200"
+                : "text-slate-600 hover:text-slate-900 hover:bg-slate-200/50"
+            }`}
+          >
+            HR Manager
+>>>>>>> 63593a4007dd16e7b77a955538c0b7b9eee0312f
           </button>
           <button
             onClick={() => switchDemoUser("CANDIDATE")}
             disabled={isLoading}
+<<<<<<< HEAD
             className={`px-3 py-1 rounded-lg transition-all font-semibold flex items-center gap-1.5 ${
               user?.role === "CANDIDATE"
                 ? "bg-white text-emerald-700 shadow-xs border border-slate-200 font-bold"
@@ -75,14 +119,28 @@ export function Navbar({ onViewLanding, tokenBalance, onOpenPurchaseModal }: Nav
           >
             <GraduationCap className="w-3.5 h-3.5 text-emerald-600" />
             <span>Candidate</span>
+=======
+            className={`px-3 py-1 rounded-lg transition-all font-semibold ${
+              user?.role === "CANDIDATE"
+                ? "bg-white text-emerald-700 shadow-xs border border-slate-200"
+                : "text-slate-600 hover:text-slate-900 hover:bg-slate-200/50"
+            }`}
+          >
+            Candidate
+>>>>>>> 63593a4007dd16e7b77a955538c0b7b9eee0312f
           </button>
         </div>
 
         {onViewLanding && (
           <button
             onClick={onViewLanding}
+<<<<<<< HEAD
             className="text-xs text-slate-600 hover:text-blue-600 font-semibold px-2.5 py-1.5 rounded-lg hover:bg-slate-100 transition-colors flex items-center gap-1"
             title="View Portals & Landing Page"
+=======
+            className="text-xs text-slate-600 hover:text-blue-600 font-medium px-2.5 py-1.5 rounded-lg hover:bg-slate-100 transition-colors flex items-center gap-1"
+            title="View Landing Page"
+>>>>>>> 63593a4007dd16e7b77a955538c0b7b9eee0312f
           >
             <span>Landing Page</span>
             <ExternalLink className="w-3 h-3 text-slate-400" />
@@ -93,10 +151,17 @@ export function Navbar({ onViewLanding, tokenBalance, onOpenPurchaseModal }: Nav
         {user ? (
           <div className="flex items-center gap-3 pl-2 border-l border-slate-200">
             <div className="text-right hidden sm:block">
+<<<<<<< HEAD
               <p className="text-xs font-bold text-slate-900">{user.full_name}</p>
               <p className="text-[11px] text-slate-500">
                 {user.role === "ORG_HR" ? "HR Officer" : "Candidate"}
                 {user.role === "ORG_HR" && user.organization_name ? ` • ${user.organization_name}` : ""}
+=======
+              <p className="text-xs font-semibold text-slate-900">{user.full_name}</p>
+              <p className="text-[11px] text-slate-500">
+                {user.role === "ORG_HR" ? "HR Manager" : user.role === "CANDIDATE" ? "Candidate" : "Admin"}
+                {user.organization_name ? ` • ${user.organization_name}` : ""}
+>>>>>>> 63593a4007dd16e7b77a955538c0b7b9eee0312f
               </p>
             </div>
             <button

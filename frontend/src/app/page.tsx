@@ -61,7 +61,11 @@ export default function Home() {
   // Auth modal state
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [authModalMode, setAuthModalMode] = useState<"login" | "signup">("login");
+<<<<<<< HEAD
   const [authModalPortal, setAuthModalPortal] = useState<"CANDIDATE" | "ORG_HR">("ORG_HR");
+=======
+  const [authModalRole, setAuthModalRole] = useState<"ADMIN" | "ORG_HR" | "CANDIDATE">("ORG_HR");
+>>>>>>> 63593a4007dd16e7b77a955538c0b7b9eee0312f
 
   // Token System State
   const [tokenBalance, setTokenBalance] = useState<number>(3); // Initial 3 demo tokens
@@ -180,6 +184,7 @@ export default function Home() {
     },
   ];
 
+<<<<<<< HEAD
   const openAuth = (portal: "CANDIDATE" | "ORG_HR", mode: "login" | "signup" = "login") => {
     setAuthModalPortal(portal);
     setAuthModalMode(mode);
@@ -187,6 +192,15 @@ export default function Home() {
   };
 
   const handleQuickDemo = async (role: "ORG_HR" | "CANDIDATE") => {
+=======
+  const openAuth = (mode: "login" | "signup", role?: "ADMIN" | "ORG_HR" | "CANDIDATE") => {
+    setAuthModalMode(mode);
+    if (role) setAuthModalRole(role);
+    setAuthModalOpen(true);
+  };
+
+  const handleQuickDemo = async (role: "ADMIN" | "ORG_HR" | "CANDIDATE") => {
+>>>>>>> 63593a4007dd16e7b77a955538c0b7b9eee0312f
     await switchDemoUser(role);
     setViewMode("workspace");
     if (role === "CANDIDATE") {
@@ -222,11 +236,14 @@ export default function Home() {
 
   useEffect(() => {
     if (user) {
+<<<<<<< HEAD
       if (user.role === "CANDIDATE" && currentTab !== "candidate_portal" && currentTab !== "documents" && currentTab !== "dashboard") {
         setCurrentTab("candidate_portal");
       } else if (user.role === "ORG_HR" && currentTab === "candidate_portal") {
         setCurrentTab("dashboard");
       }
+=======
+>>>>>>> 63593a4007dd16e7b77a955538c0b7b9eee0312f
       fetchDashboardData();
       creditsApi
         .getBalance()
@@ -341,8 +358,13 @@ export default function Home() {
         <AuthModal
           isOpen={authModalOpen}
           onClose={() => setAuthModalOpen(false)}
+<<<<<<< HEAD
           initialPortal={authModalPortal}
           initialMode={authModalMode}
+=======
+          initialMode={authModalMode}
+          initialRole={authModalRole}
+>>>>>>> 63593a4007dd16e7b77a955538c0b7b9eee0312f
         />
       </>
     );
